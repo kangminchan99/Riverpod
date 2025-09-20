@@ -27,6 +27,13 @@ class StateProviderScreen extends ConsumerWidget {
             const SizedBox(height: 10),
             ElevatedButton(
               onPressed: () {
+                ref.read(numberProvider.notifier).state--;
+              },
+              child: Text('Decrease'),
+            ),
+            const SizedBox(height: 10),
+            ElevatedButton(
+              onPressed: () {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
