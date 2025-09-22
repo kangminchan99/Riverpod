@@ -56,6 +56,15 @@ class CodeGenerationScreen extends ConsumerWidget {
                 ),
               ],
             ),
+            SizedBox(height: 16),
+            // invalidate()
+            // 유효하지 않게 하다 -> state를 더 이상 유효하지 않게 하여 초기 상태로 초기화 한다.
+            ElevatedButton(
+              onPressed: () {
+                ref.invalidate(tStateProvider);
+              },
+              child: Text('Invalidate'),
+            ),
           ],
         ),
       ),
