@@ -114,3 +114,86 @@ final class GStateFuture2Provider
 }
 
 String _$gStateFuture2Hash() => r'6d786638ab0cc45e74848024ef51aa34aa371af9';
+
+@ProviderFor(gStateMultiply)
+const gStateMultiplyProvider = GStateMultiplyFamily._();
+
+final class GStateMultiplyProvider extends $FunctionalProvider<int, int, int>
+    with $Provider<int> {
+  const GStateMultiplyProvider._({
+    required GStateMultiplyFamily super.from,
+    required ({int number1, int number2}) super.argument,
+  }) : super(
+         retry: null,
+         name: r'gStateMultiplyProvider',
+         isAutoDispose: true,
+         dependencies: null,
+         $allTransitiveDependencies: null,
+       );
+
+  @override
+  String debugGetCreateSourceHash() => _$gStateMultiplyHash();
+
+  @override
+  String toString() {
+    return r'gStateMultiplyProvider'
+        ''
+        '$argument';
+  }
+
+  @$internal
+  @override
+  $ProviderElement<int> $createElement($ProviderPointer pointer) =>
+      $ProviderElement(pointer);
+
+  @override
+  int create(Ref ref) {
+    final argument = this.argument as ({int number1, int number2});
+    return gStateMultiply(
+      ref,
+      number1: argument.number1,
+      number2: argument.number2,
+    );
+  }
+
+  /// {@macro riverpod.override_with_value}
+  Override overrideWithValue(int value) {
+    return $ProviderOverride(
+      origin: this,
+      providerOverride: $SyncValueProvider<int>(value),
+    );
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return other is GStateMultiplyProvider && other.argument == argument;
+  }
+
+  @override
+  int get hashCode {
+    return argument.hashCode;
+  }
+}
+
+String _$gStateMultiplyHash() => r'f77f9f34d824e82243aaedac6b05d455233b3bfb';
+
+final class GStateMultiplyFamily extends $Family
+    with $FunctionalFamilyOverride<int, ({int number1, int number2})> {
+  const GStateMultiplyFamily._()
+    : super(
+        retry: null,
+        name: r'gStateMultiplyProvider',
+        dependencies: null,
+        $allTransitiveDependencies: null,
+        isAutoDispose: true,
+      );
+
+  GStateMultiplyProvider call({required int number1, required int number2}) =>
+      GStateMultiplyProvider._(
+        argument: (number1: number1, number2: number2),
+        from: this,
+      );
+
+  @override
+  String toString() => r'gStateMultiplyProvider';
+}
