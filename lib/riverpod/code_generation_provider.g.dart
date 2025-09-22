@@ -197,3 +197,56 @@ final class GStateMultiplyFamily extends $Family
   @override
   String toString() => r'gStateMultiplyProvider';
 }
+
+@ProviderFor(TStateNotifier)
+const tStateProvider = TStateNotifierProvider._();
+
+final class TStateNotifierProvider
+    extends $NotifierProvider<TStateNotifier, int> {
+  const TStateNotifierProvider._()
+    : super(
+        from: null,
+        argument: null,
+        retry: null,
+        name: r'tStateProvider',
+        isAutoDispose: true,
+        dependencies: null,
+        $allTransitiveDependencies: null,
+      );
+
+  @override
+  String debugGetCreateSourceHash() => _$tStateNotifierHash();
+
+  @$internal
+  @override
+  TStateNotifier create() => TStateNotifier();
+
+  /// {@macro riverpod.override_with_value}
+  Override overrideWithValue(int value) {
+    return $ProviderOverride(
+      origin: this,
+      providerOverride: $SyncValueProvider<int>(value),
+    );
+  }
+}
+
+String _$tStateNotifierHash() => r'776ec18ff5afa6627dbfba66e73fef9608c7ca7b';
+
+abstract class _$TStateNotifier extends $Notifier<int> {
+  int build();
+  @$mustCallSuper
+  @override
+  void runBuild() {
+    final created = build();
+    final ref = this.ref as $Ref<int, int>;
+    final element =
+        ref.element
+            as $ClassProviderElement<
+              AnyNotifier<int, int>,
+              int,
+              Object?,
+              Object?
+            >;
+    element.handleValue(ref, created);
+  }
+}

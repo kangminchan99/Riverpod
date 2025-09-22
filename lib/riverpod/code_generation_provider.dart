@@ -45,3 +45,20 @@ final _testFamilyProvider = Provider.family<int, Paramater>(
 int gStateMultiply(Ref ref, {required int number1, required int number2}) {
   return number1 * number2;
 }
+
+// StateNotifierProvider 코드제너레이션으로 생성
+@riverpod
+class TStateNotifier extends _$TStateNotifier {
+  @override
+  int build() {
+    return 0;
+  }
+
+  increment() {
+    state++;
+  }
+
+  decrement() {
+    state--;
+  }
+}
