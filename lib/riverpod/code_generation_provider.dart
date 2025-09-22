@@ -14,4 +14,19 @@ String gState(Ref ref) {
   return 'Hello Code Generation';
 }
 
+@riverpod
+Future<int> gStateFuture(Ref ref) async {
+  await Future.delayed(const Duration(seconds: 2));
+
+  return 42;
+}
+
+// keepAlive: true -> autoDispose 해제
+@Riverpod(keepAlive: true)
+Future<int> gStateFuture2(Ref ref) async {
+  await Future.delayed(const Duration(seconds: 2));
+
+  return 42;
+}
+
 // 2) parameter - family 파라미터를 일반 함수처럼 사용할 수 있도록

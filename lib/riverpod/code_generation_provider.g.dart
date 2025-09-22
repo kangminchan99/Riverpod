@@ -48,3 +48,69 @@ final class GStateProvider extends $FunctionalProvider<String, String, String>
 }
 
 String _$gStateHash() => r'f0d87d8b9d9036d447bca45326976bc4f227c53b';
+
+@ProviderFor(gStateFuture)
+const gStateFutureProvider = GStateFutureProvider._();
+
+final class GStateFutureProvider
+    extends $FunctionalProvider<AsyncValue<int>, int, FutureOr<int>>
+    with $FutureModifier<int>, $FutureProvider<int> {
+  const GStateFutureProvider._()
+    : super(
+        from: null,
+        argument: null,
+        retry: null,
+        name: r'gStateFutureProvider',
+        isAutoDispose: true,
+        dependencies: null,
+        $allTransitiveDependencies: null,
+      );
+
+  @override
+  String debugGetCreateSourceHash() => _$gStateFutureHash();
+
+  @$internal
+  @override
+  $FutureProviderElement<int> $createElement($ProviderPointer pointer) =>
+      $FutureProviderElement(pointer);
+
+  @override
+  FutureOr<int> create(Ref ref) {
+    return gStateFuture(ref);
+  }
+}
+
+String _$gStateFutureHash() => r'296aaf06d01154de00ecc50232ff7408403723ce';
+
+@ProviderFor(gStateFuture2)
+const gStateFuture2Provider = GStateFuture2Provider._();
+
+final class GStateFuture2Provider
+    extends $FunctionalProvider<AsyncValue<int>, int, FutureOr<int>>
+    with $FutureModifier<int>, $FutureProvider<int> {
+  const GStateFuture2Provider._()
+    : super(
+        from: null,
+        argument: null,
+        retry: null,
+        name: r'gStateFuture2Provider',
+        isAutoDispose: false,
+        dependencies: null,
+        $allTransitiveDependencies: null,
+      );
+
+  @override
+  String debugGetCreateSourceHash() => _$gStateFuture2Hash();
+
+  @$internal
+  @override
+  $FutureProviderElement<int> $createElement($ProviderPointer pointer) =>
+      $FutureProviderElement(pointer);
+
+  @override
+  FutureOr<int> create(Ref ref) {
+    return gStateFuture2(ref);
+  }
+}
+
+String _$gStateFuture2Hash() => r'6d786638ab0cc45e74848024ef51aa34aa371af9';
