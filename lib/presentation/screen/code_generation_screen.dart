@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_ex/layout/default_layout.dart';
@@ -8,11 +10,12 @@ class CodeGenerationScreen extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    log('전체 빌드');
     final state1 = ref.watch(gStateProvider);
     final state2 = ref.watch(gStateFutureProvider);
     final state3 = ref.watch(gStateFuture2Provider);
     final state4 = ref.watch(gStateMultiplyProvider(number1: 10, number2: 20));
-    final state5 = ref.watch(tStateProvider);
+
     return DefaultLayout(
       title: 'CodeGenerationScreen',
       body: SizedBox(
@@ -36,7 +39,17 @@ class CodeGenerationScreen extends ConsumerWidget {
             SizedBox(height: 16),
             Text('State4 $state4'),
             SizedBox(height: 16),
-            Text('State5 $state5'),
+            Consumer(
+              builder: (context, ref, child) {
+                log('부분 빌드');
+                final state5 = ref.watch(tStateProvider);
+                return Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [Text('State5 $state5'), if (child != null) child],
+                );
+              },
+              child: Text('렌더링 되지 않는 child'),
+            ),
             SizedBox(height: 8),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
