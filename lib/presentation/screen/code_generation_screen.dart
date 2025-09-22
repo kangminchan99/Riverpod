@@ -48,7 +48,6 @@ class CodeGenerationScreen extends ConsumerWidget {
                   child: Text('Decrement'),
                 ),
                 SizedBox(width: 8),
-
                 ElevatedButton(
                   onPressed: () {
                     ref.read(tStateProvider.notifier).increment();
